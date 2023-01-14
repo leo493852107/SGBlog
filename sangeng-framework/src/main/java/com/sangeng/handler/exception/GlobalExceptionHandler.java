@@ -30,4 +30,9 @@ public class GlobalExceptionHandler {
         //从异常对象中获取提示信息封装返回
         return ResponseResult.errorResult(AppHttpCodeEnum.SYSTEM_ERROR.getCode(),e.getMessage());
     }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public void accessDeniedException(AccessDeniedException e) throws AccessDeniedException {
+        throw e;
+    }
 }
